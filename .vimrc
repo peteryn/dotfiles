@@ -23,6 +23,7 @@ autocmd Filetype html setlocal ts=2 sts=2 sw=2
 autocmd Filetype css setlocal ts=2 sts=2 sw=2
 autocmd Filetype javascript setlocal ts=2 sts=2 sw=2
 autocmd Filetype python setlocal expandtab tw=80 sts=4 sw=4
+autocmd FileType haskell setlocal shiftwidth=4 smarttab expandtab tabstop=8 softtabstop=0
 
 " line numbers
 set number
@@ -70,6 +71,9 @@ set noerrorbells visualbell t_vb=
 if has('autocmd')
   autocmd GUIEnter * set visualbell t_vb=
 endif
+
+set visualbell
+set t_vb=
 
 " terminal stuff
 if &term == "alacritty"        
