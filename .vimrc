@@ -4,7 +4,6 @@ Plug 'catppuccin/vim', {'as': 'catppuccin'}
 Plug 'arcticicestudio/nord-vim'
 Plug 'joshdick/onedark.vim'
 Plug 'itchyny/lightline.vim'
-Plug 'jiangmiao/auto-pairs'
 call plug#end()
 
 " syntax highlighting
@@ -23,6 +22,7 @@ autocmd Filetype html setlocal ts=2 sts=2 sw=2
 autocmd Filetype css setlocal ts=2 sts=2 sw=2
 autocmd Filetype javascript setlocal ts=2 sts=2 sw=2
 autocmd Filetype python setlocal expandtab tw=80 sts=4 sw=4
+autocmd Filetype haskell setlocal ts=4 expandtab
 
 " line numbers
 set number
@@ -78,3 +78,6 @@ endif
 hi Normal guibg=NONE ctermbg=NONE
 
 autocmd BufNewFile,BufRead * setlocal formatoptions-=cro
+
+" copy into buffer, then use ctrl-shift-2 to copy into system
+nnoremap <C-@> :call system("wl-copy", @")<CR>

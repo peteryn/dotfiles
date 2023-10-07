@@ -21,7 +21,7 @@ alias pm='python manage.py'
 alias size='du -sh'
 alias nf='clear;neofetch'
 alias tetris='autoload -Uz tetriscurses;tetriscurses'
-#alias hacker='unimatrix -n -s 96 -l o'
+alias hacker='unimatrix -n -s 96 -l o'
 #alias usage='sh ~/.config/bin/usage.sh'
 alias config='/usr/bin/git --git-dir=$HOME/dotfiles/ --work-tree=$HOME'
 
@@ -42,5 +42,9 @@ bindkey -M menuselect 'l' vi-forward-char
 bindkey -M menuselect 'j' vi-down-line-or-history
 bindkey -v '^?' backward-delete-char
 
+
+bindkey '^R' history-incremental-search-backward
 # starship prompt
 eval "$(starship init zsh)"
+
+[ -f "/home/pyuan/.ghcup/env" ] && source "/home/pyuan/.ghcup/env" # ghcup-env
