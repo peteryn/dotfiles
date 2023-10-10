@@ -3,3 +3,4 @@ eval "$(starship init bash)"
 alias ls='ls --color=auto'
 
 [ -f "/home/pyuan/.ghcup/env" ] && source "/home/pyuan/.ghcup/env" # ghcup-env
+

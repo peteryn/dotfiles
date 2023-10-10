@@ -22,7 +22,7 @@ autocmd Filetype html setlocal ts=2 sts=2 sw=2
 autocmd Filetype css setlocal ts=2 sts=2 sw=2
 autocmd Filetype javascript setlocal ts=2 sts=2 sw=2
 autocmd Filetype python setlocal expandtab tw=80 sts=4 sw=4
-autocmd FileType haskell setlocal shiftwidth=4 smarttab expandtab tabstop=8 softtabstop=0
+autocmd FileType haskell setlocal expandtab tabstop=4
 
 " line numbers
 set number
@@ -79,8 +79,16 @@ if &term == "alacritty"
   let &term = "xterm-256color"
 endif
 hi Normal guibg=NONE ctermbg=NONE
+"set term=screen-256color
 
 autocmd BufNewFile,BufRead * setlocal formatoptions-=cro
 
 " copy into buffer, then use ctrl-shift-2 to copy into system
 nnoremap <C-@> :call system("wl-copy", @")<CR>
+
+" needed for tmux
+if exists('+termguicolors')
+  let &t_8f = "\<Esc>[38;2;%lu;%lu;%lum"
+  let &t_8b = "\<Esc>[48;2;%lu;%lu;%lum"
+  set termguicolors
+endif
