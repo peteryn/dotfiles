@@ -23,7 +23,7 @@ alias nf='clear;neofetch'
 alias tetris='autoload -Uz tetriscurses;tetriscurses'
 alias hacker='unimatrix -n -s 96 -l o'
 #alias usage='sh ~/.config/bin/usage.sh'
-alias config='/usr/bin/git --git-dir=$HOME/dotfiles/ --work-tree=$HOME'
+alias config='/run/current-system/sw/bin/git --git-dir=$HOME/.cfg/ --work-tree=$HOME'
 
 #setxkbmap -option caps:escape
 
