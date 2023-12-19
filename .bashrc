@@ -5,3 +5,4 @@ alias python='python3'
 
 [ -f "/home/pyuan/.ghcup/env" ] && source "/home/pyuan/.ghcup/env" # ghcup-env
 
+. "$HOME/.cargo/env"
