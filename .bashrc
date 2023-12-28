@@ -3,7 +3,3 @@ eval "$(starship init bash)"
 alias ls='ls --color=auto'
 alias python='python3'
 alias vi='nvim'
-
-[ -f "/home/pyuan/.ghcup/env" ] && source "/home/pyuan/.ghcup/env" # ghcup-env
-
-. "$HOME/.cargo/env"

@@ -72,7 +72,7 @@ require('lazy').setup({
   'tpope/vim-rhubarb',
 
   -- Detect tabstop and shiftwidth automatically
-  'tpope/vim-sleuth',
+  --'tpope/vim-sleuth',
 
   -- NOTE: This is where your plugins related to LSP can be installed.
   --  The configuration is done below. Search for lspconfig to find it below.
@@ -238,6 +238,27 @@ require('lazy').setup({
 -- NOTE: You can change these options as you wish!
 
 vim.cmd.colorscheme "catppuccin"
+
+-- length of tab characters
+vim.opt.tabstop = 8
+
+-- makes spaces feel like tabs
+vim.opt.softtabstop = 0
+
+-- text wrapping
+vim.opt.textwidth = 79
+
+-- 4 space indents
+vim.opt.shiftwidth = 4
+
+-- only use spaces, not tabs
+vim.opt.expandtab = true
+vim.opt.smarttab = true
+
+vim.api.nvim_create_autocmd("FileType", {
+	pattern = "java",
+	command = "setlocal shiftwidth=4 tabstop=4 expandtab"
+})
 
 -- Set highlight on search
 vim.o.hlsearch = false
@@ -567,3 +588,5 @@ cmp.setup {
 
 -- The line beneath this is called `modeline`. See `:help modeline`
 -- vim: ts=2 sts=2 sw=2 et
+
+
