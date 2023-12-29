@@ -15,7 +15,7 @@ autoload -Uz compinit && compinit
 
 # simple keymaps
 alias ls='ls --color=auto'
-alias vi='vim'
+alias vi='nvim'
 alias cu='curl -O'
 alias pm='python manage.py'
 alias size='du -sh'
@@ -23,7 +23,8 @@ alias nf='clear;neofetch'
 alias tetris='autoload -Uz tetriscurses;tetriscurses'
 alias hacker='unimatrix -n -s 96 -l o'
 #alias usage='sh ~/.config/bin/usage.sh'
-alias config='/usr/bin/git --git-dir=$HOME/dotfiles/ --work-tree=$HOME'
+#alias config='/usr/bin/git --git-dir=$HOME/dotfiles/ --work-tree=$HOME'
+alias config='/usr/bin/git --git-dir=$HOME/.cfg/ --work-tree=$HOME'
 
 #setxkbmap -option caps:escape
 
