@@ -594,5 +594,13 @@ cmp.setup {
 local config = {
     cmd = {'/home/pyuan/jdt/bin/jdtls'},
     root_dir = vim.fs.dirname(vim.fs.find({'gradlew', '.git', 'mvnw'}, { upward = true })[1]),
+    handlers = {
+                  ["language/status"] = function(_, result)
+                    -- print(result)
+                  end,
+                  ["$/progress"] = function(_, result, ctx)
+                    -- disable progress updates.
+                  end,
+                },
 }
 require('jdtls').start_or_attach(config)
