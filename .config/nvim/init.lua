@@ -95,6 +95,14 @@ require('lazy').setup({
   },
 
   {
+    'numToStr/Comment.nvim',
+    opts = {
+        -- add any options here
+    },
+    lazy = false,
+  },
+
+  {
     -- Autocompletion
     'hrsh7th/nvim-cmp',
     dependencies = {
@@ -259,6 +267,11 @@ vim.opt.smarttab = true
 vim.api.nvim_create_autocmd("FileType", {
 	pattern = "java",
 	command = "setlocal shiftwidth=4 tabstop=4 expandtab"
+})
+
+vim.api.nvim_create_autocmd("FileType", {
+        pattern = "html",
+        command = "setlocal shiftwidth=2 tabstop=2 expandtab"
 })
 
 -- Set highlight on search
@@ -604,3 +617,5 @@ local config = {
                 },
 }
 require('jdtls').start_or_attach(config)
+
+require('Comment').setup()
