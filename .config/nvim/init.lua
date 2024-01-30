@@ -619,3 +619,5 @@ local config = {
 require('jdtls').start_or_attach(config)
 
 require('Comment').setup()
+
+require'lspconfig'.pyright.setup{}
