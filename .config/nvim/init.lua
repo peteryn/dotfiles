@@ -101,7 +101,11 @@ require('lazy').setup({
     },
     lazy = false,
   },
-
+  {
+    'windwp/nvim-autopairs',
+    event = "InsertEnter",
+    opts = {} -- this is equalent to setup({}) function
+  },
   {
     -- Autocompletion
     'hrsh7th/nvim-cmp',
@@ -621,3 +625,28 @@ require('jdtls').start_or_attach(config)
 require('Comment').setup()
 
 require'lspconfig'.pyright.setup{}
+
+--Enable (broadcasting) snippet capability for completion
+local capabilities = vim.lsp.protocol.make_client_capabilities()
+capabilities.textDocument.completion.completionItem.snippetSupport = true
+
+require'lspconfig'.cssls.setup {
+  capabilities = capabilities,
+}
+require'lspconfig'.html.setup {
+  capabilities = capabilities,
+}
+require'lspconfig'.emmet_language_server.setup{}
+
+require'lspconfig'.biome.setup{}
+require'lspconfig'.eslint.setup({
+  --- ...
+  on_attach = function(client, bufnr)
+    vim.api.nvim_create_autocmd("BufWritePre", {
+      buffer = bufnr,
+      command = "EslintFixAll",
+    })
+  end,
+})
+
+require'lspconfig'.tsserver.setup{}
