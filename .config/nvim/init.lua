@@ -93,7 +93,17 @@ require('lazy').setup({
       'folke/neodev.nvim',
     },
   },
-
+  {
+    'windwp/nvim-autopairs',
+    event = "InsertEnter",
+    opts = {} -- this is equalent to setup({}) function
+  },
+  {
+  "olrtg/nvim-emmet",
+  config = function()
+    vim.keymap.set({ "n", "v" }, '<leader>xe', require('nvim-emmet').wrap_with_abbreviation)
+  end,
+  },
   {
     'numToStr/Comment.nvim',
     opts = {
@@ -274,7 +284,7 @@ vim.api.nvim_create_autocmd("FileType", {
 })
 
 vim.api.nvim_create_autocmd("FileType", {
-        pattern = "html",
+        pattern = "javascript",
         command = "setlocal shiftwidth=2 tabstop=2 expandtab"
 })
 
@@ -622,10 +632,15 @@ local config = {
 }
 require('jdtls').start_or_attach(config)
 
+
+
+-- disable auto comments on next line
+vim.cmd([[autocmd FileType * set formatoptions-=ro]])
 require('Comment').setup()
 
 require'lspconfig'.pyright.setup{}
 
+<<<<<<< Updated upstream
 --Enable (broadcasting) snippet capability for completion
 local capabilities = vim.lsp.protocol.make_client_capabilities()
 capabilities.textDocument.completion.completionItem.snippetSupport = true
@@ -650,3 +665,6 @@ require'lspconfig'.eslint.setup({
 })
 
 require'lspconfig'.tsserver.setup{}
+=======
+
+>>>>>>> Stashed changes

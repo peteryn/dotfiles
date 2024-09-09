@@ -45,7 +45,15 @@ bindkey -v '^?' backward-delete-char
 
 
 bindkey '^R' history-incremental-search-backward
+
+#source /usr/share/nvm/init-nvm.sh
+# nvm use v20.11.1
+
 # starship prompt
 eval "$(starship init zsh)"
 
 [ -f "/home/pyuan/.ghcup/env" ] && source "/home/pyuan/.ghcup/env" # ghcup-env
+
+
+# Load Angular CLI autocompletion.
+source <(ng completion script)
