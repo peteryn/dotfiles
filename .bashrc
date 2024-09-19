@@ -1,5 +1,4 @@
 alias config='/usr/bin/git --git-dir=$HOME/.cfg/ --work-tree=$HOME'
-eval "$(starship init bash)"
 alias ls='ls --color=auto'
 alias python='python3'
 alias vi='vim'
@@ -31,3 +30,15 @@ _comp_java () {
 }
 
 complete -o nospace -o filenames -F _comp_java java
+
+
+source <(ng completion script)
+
+# User specific environment
+if ! [[ "$PATH" =~ "$HOME/.local/bin:$HOME/bin:" ]]; then
+    PATH="$HOME/.local/bin:$HOME/bin:$PATH"
+fi
+export PATH
+
+export PATH="~/.local/share/flatpak/exports/bin:/var/lib/flatpak/exports/bin:$PATH"
+eval "$(starship init bash)"
