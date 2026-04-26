@@ -24,7 +24,8 @@ vim.cmd('autocmd BufEnter * setlocal formatoptions-=cro')
 
 vim.pack.add({
 	'https://github.com/projekt0n/github-nvim-theme',
-	{ src = 'https://github.com/nvim-treesitter/nvim-treesitter', version = 'main'}
+	{ src = 'https://github.com/nvim-treesitter/nvim-treesitter', version = 'main'},
+	'http://github.com/neovim/nvim-lspconfig'
 })
 
 vim.cmd('colorscheme github_dark_default')
