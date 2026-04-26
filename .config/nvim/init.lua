@@ -12,8 +12,11 @@ vim.opt.expandtab = false
 vim.o.list = true
 vim.opt.listchars = { tab = '» ', trail = '·', nbsp = '␣' }
 
+-- conrols how many lines must be shown
+vim.opt.scrolloff = 8
+
 -- Save undo history
-vim.o.undofile = true
+--vim.o.undofile = true
 
 -- stop newlines from adding a comment
 vim.cmd('autocmd BufEnter * set formatoptions-=cro')
@@ -21,7 +24,7 @@ vim.cmd('autocmd BufEnter * setlocal formatoptions-=cro')
 
 vim.pack.add({
 	'https://github.com/projekt0n/github-nvim-theme',
-	'https://github.com/nvim-treesitter/nvim-treesitter'
+	{ src = 'https://github.com/nvim-treesitter/nvim-treesitter', version = 'main'}
 })
 
 vim.cmd('colorscheme github_dark_default')
@@ -41,3 +44,11 @@ vim.api.nvim_create_autocmd('FileType', {
 		vim.treesitter.start(args.buf, language)
 	end,
 })
+
+vim.opt.completeopt = { 'menuone', 'noinsert', 'popup' }
+
+vim.lsp.enable('lua_ls')
+vim.lsp.enable('gopls')
+
+vim.o.completeopt = "menuone,fuzzy,popup,preinsert"
+vim.o.autocomplete = true
